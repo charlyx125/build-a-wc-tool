@@ -1,7 +1,12 @@
 import sys
 
+
 def get_bytes(content):
     return len(content)  # bytes = number of raw bytes
+
+
+def get_chars(content):
+    return len(content.decode("utf-8"))
 
 
 def get_lines(content):
@@ -30,9 +35,9 @@ def main():
 
     content = read_content(files)
 
-    handlers = {"-l": get_lines, "-w": get_words, "-c": get_bytes}
+    handlers = {"-l": get_lines, "-w": get_words, "-c": get_bytes, "-m": get_chars}
 
-    selected = flags if flags else handlers.keys()
+    selected = flags if flags else ["-l", "-w", "-c"]
 
     results = [
         f"{handlers[f](content)}"
