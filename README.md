@@ -3,7 +3,7 @@
 A small clone of the Unix `wc` (word count) tool, built for the
 [Coding Challenges `wc` challenge](https://codingchallenges.fyi/challenges/challenge-wc).
 
-Counts bytes, lines, and words from a file or from standard input.
+Counts bytes, lines, words, and characters from a file or from standard input.
 
 ## Install
 
@@ -14,13 +14,24 @@ pip install -e .
 This registers a `ccwc` command. If your shell can't find it afterward, add
 Python's user `Scripts` directory to your `PATH`.
 
+## Tests
+
+```
+pip install pytest
+pytest
+```
+
+Covers the counting functions (including CRLF and multibyte edge cases), file /
+missing-file / stdin reading, and each flag end-to-end.
+
 ## Usage
 
 ```
 ccwc -c <file>      # bytes
 ccwc -l <file>      # lines
 ccwc -w <file>      # words
-ccwc <file>         # all three: lines words bytes
+ccwc -m <file>      # characters (multibyte-aware)
+ccwc <file>         # default: lines words bytes
 cat <file> | ccwc   # read from standard input instead of a file
 ```
 

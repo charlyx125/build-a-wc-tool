@@ -1,13 +1,17 @@
 import sys
 
+
 def get_bytes(content):
     return len(content)  # bytes = number of raw bytes
+
 
 def get_chars(content):
     return len(content.decode("utf-8"))
 
+
 def get_lines(content):
     return content.decode("utf-8").count("\n")  # lines = number of newline characters
+
 
 def get_words(content):
     return len(content.decode("utf-8").split())  # words = pieces split on whitespace
