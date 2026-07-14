@@ -1,0 +1,10 @@
+[project]
+name = "ccwc"
+version = "0.1.0"
+
+[project.scripts]
+ccwc = "main:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
